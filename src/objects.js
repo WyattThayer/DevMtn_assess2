@@ -134,10 +134,11 @@ for (const word of words){
 //   }, 1);
 //   => true
 function isBugAvailable(bug, month) {
-if(bug.name.)
-
-
+return bug.availability.months.includes(month)
 }
+
+
+
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
@@ -180,7 +181,19 @@ if(bug.name.)
 //     12: [],
 //   }
 
-function buildBugHuntCalendar(bugs) {}
+function buildBugHuntCalendar(bugs) {
+  let calendar = {}
+  for (const bug of bugs){
+    const {name, availability} = bug  
+    const {months} = availability
+    for (const month of months){
+      if (!calendar[month]){
+        calendar[month] = []
+      }
+      calendar[month].push(name)
+    }
+}return calendar
+}
 
 export {
   buildBugHuntCalendar,

@@ -7,8 +7,14 @@
 // When a user clicks on the button that says "Log In", its text should
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
-
-/// TODO: replace this with your code
+let login = document.querySelector('#auth')
+login.addEventListener('click', () => { 
+if (login.innerHTML === 'Log in'){
+    login.innerHTML = 'Log out'
+}else{
+    login.innerHTML = 'Log in'
+}
+})
 
 // Send an alert
 //
@@ -17,7 +23,18 @@
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
-/// TODO: replace this with your code
+ // Function to handle form submission
+//  let showAlert = cow.addEventListener('submit',alert((document.querySelector('alert-message').value))
+//  function showAlert(event) {
+//     event.preventDefault(); 
+//       const message = document.getElementById("alert-message").value;
+//        if (message.trim() !== "") {
+//              alert(message);
+//     } else {
+//         alert("Please enter a message.");
+//     }
+// }
+// document.getElementById("send-message").addEventListener("submit", showAlert);
 
 // Add an item
 //
@@ -34,7 +51,11 @@
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-/// TODO: replace this with your code
+let dblClick = document.querySelector('#item-adder')
+
+dblClick.addEventListener('dblclick',(evt)=>{
+    dblClick.push("item")
+})
 
 // Change colors
 //
