@@ -2,6 +2,7 @@ body{
     background-color: black;
     color: rgb(255, 255, 255);
     font-family: sans-serif;
+    box-sizing: content-box;
 }
 table{
     margin-top: 50px;

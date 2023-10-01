@@ -7,14 +7,14 @@
 // When a user clicks on the button that says "Log In", its text should
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
-let login = document.querySelector('#auth')
-login.addEventListener('click', () => { 
-if (login.innerHTML === 'Log in'){
-    login.innerHTML = 'Log out'
-}else{
-    login.innerHTML = 'Log in'
-}
-})
+let login = document.querySelector("#auth");
+login.addEventListener("click", () => {
+  if (login.innerHTML === "Log in") {
+    login.innerHTML = "Log out";
+  } else {
+    login.innerHTML = "Log in";
+  }
+});
 
 // Send an alert
 //
@@ -23,18 +23,18 @@ if (login.innerHTML === 'Log in'){
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
- // Function to handle form submission
-//  let showAlert = cow.addEventListener('submit',alert((document.querySelector('alert-message').value))
-//  function showAlert(event) {
-//     event.preventDefault(); 
-//       const message = document.getElementById("alert-message").value;
-//        if (message.trim() !== "") {
-//              alert(message);
-//     } else {
-//         alert("Please enter a message.");
-//     }
-// }
-// document.getElementById("send-message").addEventListener("submit", showAlert);
+// Function to handle form submission
+//  let showAlert = document.addEventListener('submit',alert((document.querySelector('alert-message').value))
+function showAlert(event) {
+  event.preventDefault();
+  const message = document.getElementById("alert-message").value;
+  if (message.trim() !== "") {
+    alert(message);
+  } else {
+    alert("Please enter a message.");
+  }
+}
+document.getElementById("send-alert").addEventListener("submit", showAlert);
 
 // Add an item
 //
@@ -51,11 +51,13 @@ if (login.innerHTML === 'Log in'){
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-let dblClick = document.querySelector('#item-adder')
+let dblClick = document.querySelector("#item-adder");
 
-dblClick.addEventListener('dblclick',(evt)=>{
-    dblClick.push("item")
-})
+dblClick.addEventListener("dblclick", () => {
+  let addItem = document.createElement("li");
+  addItem.innerText = "Item";
+  document.getElementById("list").appendChild(addItem);
+});
 
 // Change colors
 //
@@ -66,7 +68,19 @@ dblClick.addEventListener('dblclick',(evt)=>{
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-/// TODO: replace this with your code
+function handleClick(evt) {
+  let nodes = document.querySelectorAll(".changes-colors");
+
+  for (const node of nodes) {
+    node.style.color = evt.target.id;
+  }
+}
+
+let blueButton = document.querySelector("#blue");
+let redButton = document.querySelector("#red");
+
+blueButton.addEventListener("click", handleClick);
+redButton.addEventListener("click", handleClick);
 
 // Calculate factorial
 //
@@ -83,7 +97,30 @@ dblClick.addEventListener('dblclick',(evt)=>{
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-/// TODO: replace this with your code
+/* on click of the calculate button get the info from the input and display the result */
+let calcForm = document.querySelector('#factorial-calculator')
+
+calcForm.addEventListener('submit',(evt)=>{
+evt.preventDefault()
+    let calculate = document.querySelector('#factorial-input').value
+    let result = document.querySelector('#result')
+
+    let math = (n) => {
+        let answer = 1
+        if (n === 0){
+            return 1
+        }else{
+        for(let i = n; i >= 1; i--){
+            answer = answer * i
+        }return answer
+    }}
+
+calculate = math(calculate)
+
+    result.innerText = calculate
+})
+
+
 
 // Validate a form
 //
@@ -100,4 +137,4 @@ dblClick.addEventListener('dblclick',(evt)=>{
 // the feedback text to say "The word must be at least 4 characters long." and
 // change the color of the text to red..
 
-/// TODO: replace this with your code
+    let Validate = document.querySelector('')
